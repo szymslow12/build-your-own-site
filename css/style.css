@@ -1,0 +1,18 @@
+
+
+header {
+    background: #ffffb3;
+    display: flex;
+    justify-content: center;
+}
+
+h1 {
+    position: absolute;
+    text-align: center;
+    font-size: 56px;
+
+}
+
+nav {
+    font-size: 15px;
+}
