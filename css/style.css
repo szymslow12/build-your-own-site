@@ -50,7 +50,6 @@ img.index_picture {
 }
 
 footer {
-    bottom: 320px;
     position: relative;
 }
 
@@ -58,4 +57,9 @@ div.content {
     border: 3px solid black;
     margin: 3px;
     background: #CCFF66;
+}
+
+ul.list {
+    color: #004d00;
+    font-weight: 500;
 }
