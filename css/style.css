@@ -1,7 +1,8 @@
-
+body {
+    background: #ffffb3;
+}
 
 header {
-    background: #ffffb3;
     display: flex;
     justify-content: center;
 }
@@ -15,4 +16,57 @@ h1 {
 
 nav {
     font-size: 15px;
+    display: flex;
+    justify-content: space-around;
+}
+
+button {
+    background-color: #33cc33;
+    border-radius: 12px;
+    border: 2px solid black;
+}
+
+a.navigation {
+    color: black;
+}
+
+button:hover {
+    background-color: #71da71;
+}
+
+
+img.web_head {
+    width: 1100;
+
+}
+
+img.index_picture {
+    border: 3px solid black;
+    padding: 0.1px;
+    width: 50%;
+    height: 360;
+    width: 460;
+}
+
+p.intro {
+    text-align: center;
+}
+
+
+
+#footer {
+  height: 500px; /* the footer's total height */
+}
+
+#footer-content {
+  align: middle;
+  background-color: #f3e5f5;
+  border: 1px solid #ab47bc;
+  height: 300px; /* height + top/bottom paddding + top/bottom border must add up to footer height */
+  padding: 8px;
+}
+
+p.footer {
+    text-align: middle;
+
 }
