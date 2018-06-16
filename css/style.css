@@ -1,4 +1,4 @@
-body {
+body.index {
     background: #ffffb3;
 }
 
@@ -23,6 +23,7 @@ nav {
 button {
     background-color: #33cc33;
     border-radius: 12px;
+    padding: 12px;
     border: 2px solid black;
 }
 
