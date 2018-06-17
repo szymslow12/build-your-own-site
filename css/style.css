@@ -38,8 +38,7 @@ a:hover {
 
 
 img.web_head {
-    width: 1300;
-
+    width: 1300px;
 }
 
 img.index_picture {
@@ -77,9 +76,9 @@ button:hover {
     background-color: #71da71;
 }
 
-textarea {
-    width: 505;
-    height: 150;
+#message {
+    width: 505px;
+    height: 150px;
 }
 
 div.contact {
