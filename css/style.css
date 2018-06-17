@@ -89,3 +89,23 @@ div.contact {
     justify-content: center;
     align-items: center;
 }
+
+input {
+    border: 2px solid black;
+    border-radius: 4px;
+}
+
+#name {
+    border: 2px solid black;
+    border-radius: 4px;
+}
+
+#message {
+    border: 2px solid black;
+    border-radius: 4px;
+}
+
+#email {
+    border: 2px solid black;
+    border-radius: 4px;
+}
