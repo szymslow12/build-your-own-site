@@ -1,9 +1,7 @@
 function activateButton() {
-    var htmlName, htmlEmail;
-    htmlName = document.getElementById("name").value;
-    htmlEmail = document.getElementById("email").value;
-    console.log(htmlEmail + htmlName + isEmailCorrect());
-    if (isNameCorrect() && isEmailCorrect()) {
+    if (isNameCorrect() &&
+        isEmailCorrect() &&
+        !isTextBoxEmpty()) {
         document.getElementById("submitButton").disabled = false;
     } else {
         document.getElementById("submitButton").disabled = true;
@@ -25,9 +23,23 @@ function isEmailCorrect() {
 
 }
 
+
+function isTextBoxEmpty() {
+    var htmlMessageValue, id;
+    id = "message";
+    htmlMessageValue = document.getElementById(id).value;
+    if (htmlMessageValue == "" || htmlMessageValue.charAt(0) == " ") {
+        document.getElementById(id).style.border = "2px solid red";
+        return true;
+    } else {
+        document.getElementById(id).style.border = "2px solid black";
+        return false;
+    }
+}
+
 function validate(id, regex, htmlValue) {
     if (regex.test(htmlValue)) {
-        document.getElementById(id).style.border = "2px solid grey";
+        document.getElementById(id).style.border = "2px solid black";
         return true;
     } else {
         document.getElementById(id).style.border = "2px solid red";
