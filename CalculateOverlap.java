@@ -1,31 +1,60 @@
 public class CalculateOverlap {
     private Rectangle r1;
     private Rectangle r2;
+    private int overlap;
 
     public CalculateOverlap(Rectangle r1, Rectangle r2) {
-
         this.r1 = r1;
         this.r2 = r2;
-        System.out.println(r1.calculateArea() + "--" + r2.calculateArea());
+        this.overlap = getOverlap();
     }
 
-    /*public int calculate() {
-        int iLeft = Math.max(leftX1, leftX2);
-        int iRight = Math.min(rightX1, rightX2);
-        int iTop = Math.max(leftX1, topY2);
-        int iBottom = Math.min(bottomY1, bottomY2);
+    private int getOverlap() {
+        if (r1.getBottomLeftX() > r2.getTopRightX() ||
+            r1.getBottomLeftY() > r2.getTopRightY() ||
+            r2.getBottomLeftX() > r1.getTopRightX() ||
+            r2.getBottomLeftY() > r1.getTopRightY()) {
 
-        int si = Math.max(0, iRight - iLeft) * Math.max(0, iBottom - iTop);
-        int sa = (rightX1 - leftX1) * (bottomY1 - topY1);
-        int sb = (rightX2 - leftX2) * (bottomY2 - topY2);
+            return 0;
 
-        return sa + sb - si;
-    }*/
+        } else if (r1.getBottomLeftX() <= r2.getTopRightX() &&
+                    r1.getBottomLeftY() <= r2.getTopRightY() &&
+                    r2.getBottomLeftX() <= r1.getTopRightX() &&
+                    r2.getBottomLeftY() <= r1.getTopRightY()) {
+
+            if (r2.getBottomLeftX() <= r1.getBottomLeftX() && r2.getBottomLeftY() >= r1.getBottomLeftY() &&
+                    r2.getTopRightX() <= r1.getTopRightX() && r2.getTopRightY() <= r1.getTopRightY()) {
+                return r2.calculateArea();
+            } else {
+                return r1.calculateArea();
+            }
+            
+        } else if (r1.getBottomLeftX() <= r2.getTopRightX() &&
+                    r1.getBottomLeftY() <= r2.getTopRightY()){
+
+            Rectangle overlapRectangle = new Rectangle(r1.getBottomLeftX(), r1.getBottomLeftY(), r2.getTopRightX(), r2.getTopRightY());
+            return overlapRectangle.calculateArea();
+
+        } else if (r2.getBottomLeftX() <= r1.getTopRightX() &&
+                    r2.getBottomLeftY() <= r1.getTopRightY()) {
+
+            Rectangle overlapRectangle = new Rectangle(r2.getBottomLeftX(), r2.getBottomLeftY(), r1.getTopRightX(), r1.getTopRightY());
+            return overlapRectangle.calculateArea();
+
+        } else {
+            return 0;
+        }
+    }
+
+    public int overlap() {
+        return this.overlap;
+    }
 
     public static void main(String[] args) {
         Rectangle r1 = new Rectangle(-1, -1, 10, 10);
         Rectangle r2 = new Rectangle(-1, 0, 3, 9);
         CalculateOverlap calculateOverlap = new CalculateOverlap(r1, r2);
-        System.out.println(new Rectangle(3, 0, 5, 5).calculateArea());
+        System.out.println(calculateOverlap.overlap());
+
     }
 }
