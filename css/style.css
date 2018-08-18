@@ -1,12 +1,23 @@
 #document-body {
     height: 100%;
-    background-image: linear-gradient(to bottom right, red 1%, white 95%);/
-    margin: 0;
+    background-image: linear-gradient(to bottom right, red 1%, white 95%);
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
 
-header {
+#footer {
+    margin: 10px;   
+}
+
+.index-picture {
+    width: 640;;
+    height: 560px;
+    border: none;
+    border-radius: 10px;
+    float: right;
+}
+
+.head-container {
     display: flex;
     justify-content: center;
 }
@@ -41,4 +52,22 @@ header {
 
 a:hover {
     background: rgb(255, 43, 43);
+}
+
+.content-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    height: auto;
+    
+}
+
+.content {
+    width: 95%;
+    height: auto;
+    background: red;
+    border: 2px solid black;
+    border-radius: 25px;
+    /*font-size: 15px;*/
+    padding: 10px;
 }
