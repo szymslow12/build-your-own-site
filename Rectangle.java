@@ -38,4 +38,8 @@ public class Rectangle {
     public int getTopRightY() {
         return topRightY;
     }
+
+    public String toString() {
+        return "Bottom point: " + bottomLeftX + ", " + bottomLeftY + " Top point: " + topRightX + ", " + topRightY + "\n";
+    }
 }
