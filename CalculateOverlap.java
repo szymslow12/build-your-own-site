@@ -35,39 +35,79 @@ public class CalculateOverlap {
 
             return 0;
 
-        } else if (bottomX1 <= topX2 &&
-                    bottomY1 <= topY2 &&
-                    bottomX2 <= topX1 &&
-                    bottomY2 <= topY1) {
+        } else if (topX1 >= topX2 && topY1 <= topY2) {
 
-            if ((r2.getBottomLeftX() <= r1.getBottomLeftX() || r2.getBottomLeftX() >= r1.getBottomLeftX()) &&
-                r2.getBottomLeftY() >= r1.getBottomLeftY() &&
-                r2.getTopRightX() <= r1.getTopRightX() &&
-                r2.getTopRightY() <= r1.getTopRightY()) {
+            return calculateOverlap(bottomX2, bottomY2, topX2, topY1);
 
-                return r2.calculateArea();
+        } else if (bottomX1 <= bottomX2 && bottomY1 >= bottomY2) {
+
+            return calculateOverlap(bottomX2, bottomY1, topX2, topY2);
+
+        } else if (bottomX1 >= bottomX2 && bottomY1 <= bottomY2) {
+
+            if (topX2 >= topX1 && topY2 >= topY1) {
+
+                return calculateOverlap(bottomX2, bottomY2, topX1, topY1);
+
             } else {
-                return r1.calculateArea();
+
+                return calculateOverlap(bottomX1, bottomY2, topX2, topY2);
             }
 
-        } else if (bottomX1 <= topX2 &&
-                    bottomY1 <= topY2){
+        } else if (bottomX1 <= bottomX2 && bottomY1 <= bottomY2) {
 
-            Rectangle overlapRectangle = new Rectangle(bottomX1, bottomY1, topX2, topY2);
-            return overlapRectangle.calculateArea();
+            if (topX1 >= topX2 && topY1 >= topY2) {
 
-        } else if (bottomX2 <= topX1 &&
-                    bottomY2 <= topY1) {
+                return calculateOverlap(bottomX2, bottomY2, topX2, topY2);
 
-            Rectangle overlapRectangle = new Rectangle(topX2, topY2, bottomX1, bottomY1);
-            return overlapRectangle.calculateArea();
+            } else {
+
+                return calculateOverlap(bottomX2, bottomY2, topX1, topY2);
+
+            }
 
         } else {
+            System.out.print(r1.toString() + r2.toString());
             return 0;
         }
     }
 
+    private int calculateOverlap(int bottomX, int bottomY, int topX, int topY) {
+        System.out.println("Bottom x: " + bottomX + " Bottom y: " + bottomY + " Top x: " + topX + " Top y: " + topY);
+        Rectangle overlapRectangle = new Rectangle(bottomX, bottomY, topX, topY);
+        return overlapRectangle.calculateArea();
+    }
+
     public int overlap() {
         return this.overlap;
+    }
+
+    public static void main(String[] args) {
+        CalculateOverlap calculateOverlap = new CalculateOverlap(-1,-1,10,10,-1,0,3,9);
+        System.out.println("Should return 36: Result -> "+ calculateOverlap.overlap());
+
+        CalculateOverlap calculateOverlap1 = new CalculateOverlap(0,0,3,3, 3000, 3000, 1000,9992);
+        System.out.println("Should return 0: Result -> " + calculateOverlap1.overlap());
+
+        CalculateOverlap calculateOverlap2 = new CalculateOverlap(-5,-4,-2,0,-5,-3,-3,-1);
+        System.out.println("Should return 4: Result -> " + calculateOverlap2.overlap());
+
+        CalculateOverlap calculateOverlap5 = new CalculateOverlap(-5,0,0,7,-6,3,-4,5);
+        System.out.println("Should return 2: Result -> " + calculateOverlap5.overlap());
+
+        CalculateOverlap calculateOverlap6 = new CalculateOverlap(5,0,11,4,7,3,9,5);
+        System.out.println("Should return 2: Result -> " + calculateOverlap6.overlap());
+
+        CalculateOverlap calculateOverlap8 = new CalculateOverlap(5,0,11,4,7,1, 9,3);
+        System.out.println("Should return 4: Result -> " + calculateOverlap8.overlap());
+
+        CalculateOverlap calculateOverlap9 = new CalculateOverlap(5,0,11,4,7,-1,9,1);
+        System.out.println("Should return 2: Result -> " + calculateOverlap9.overlap());
+
+        CalculateOverlap calculateOverlap3 = new CalculateOverlap(5,0,11,4,9,1,10,3);
+        System.out.println("Should return 2: Result -> " + calculateOverlap3.overlap());
+
+        CalculateOverlap calculateOverlap4 = new CalculateOverlap(0,0,3,4,0,2,5,4);
+        System.out.println("Should return 6: Result -> " + calculateOverlap4.overlap());
     }
 }
