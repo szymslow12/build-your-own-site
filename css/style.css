@@ -91,3 +91,22 @@ a:hover {
     border-radius: 25px;
     text-shadow: 2px 2px 2px #999966, 2px 3px 2px rgb(4, 88, 136);
 }
+
+.content.contact {
+    display: flex;
+    justify-content: center;
+}
+
+
+#message {
+    width: 100%;
+}
+
+.button.contact {
+    margin: 10px;
+    width: 34.66%;
+}
+
+.button.contact:hover {
+    background: rgb(255, 43, 43);
+}
