@@ -1,5 +1,9 @@
-body {
-    background: #ffffb3;
+#document-body {
+    height: 100%;
+    background-image: linear-gradient(to bottom right, red 1%, white 95%);/
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 header {
@@ -7,154 +11,34 @@ header {
     justify-content: center;
 }
 
-h1 {
-    position: absolute;
-    text-align: center;
-    font-size: 56px;
-
-}
-
-nav {
-    font-size: 15px;
+.head {
+    width: 80%;
+    height: 10%;
+    background: red;
+    border: 2px solid black;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    align-content: center;
 }
 
-a.navigation {
+.navigation {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-around
+}
+
+.button {
     -webkit-appearance: button;
     -moz-appearance: button;
     appearance: button;
-    text-decoration: none;
-    color: black;
-    background-color: #33cc33;
-    border-radius: 12px;
-    padding: 12px;
+    padding: 10px;
+    background: red;
     border: 2px solid black;
+    border-radius: 25px;
 }
 
 a:hover {
-    background-color: #71da71;
-}
-
-
-img.web_head {
-    width: 1300px;
-    height: 144px;
-}
-
-img.index_picture {
-    position: relative;
-    right: -2px;
-    top: -1.5px;
-    border: 3px solid black;
-    padding: 0.1px;
-    width: 25%;
-}
-
-footer {
-    position: relative;
-}
-
-div.content {
-    border: 3px solid black;
-    margin: 3px;
-    background: #CCFF66;
-}
-
-ul.list {
-
-    color: #004d00;
-    font-weight: 500;
-}
-
-button {
-    background-color: #33cc33;
-    border-radius: 12px;
-    padding: 12px;
-    border: 2px solid black;
-}
-
-button:hover {
-    background-color: #71da71;
-}
-
-#message {
-    width: 505px;
-    height: 150px;
-}
-
-div.contact {
-    display: flex;
-    border: 3px solid black;
-    margin: 3px;
-    background: #CCFF66;
-    justify-content: center;
-    align-items: center;
-}
-
-input {
-    border: 2px solid black;
-    border-radius: 4px;
-}
-
-#name {
-    border: 2px solid black;
-    border-radius: 4px;
-}
-
-#message {
-    border: 2px solid black;
-    border-radius: 4px;
-}
-
-#email {
-    border: 2px solid black;
-    border-radius: 4px;
-}
-
-img.anime_index_picture {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    opacity: 0.6;
-}
-
-#anime_content {
-    height: 600px;
-    width: 1280px;
-    border: 3px solid black;
-    margin: 3px;
-}
-
-p.anime {
-    position: absolute;
-    color: #663300;
-    font-weight: 600;
-}
-
-ul.animeList {
-    position: absolute;
-    color: black;
-    font-size: 20px;
-    font-weight: 900;
-}
-
-#bestAnime {
-    background: #b3e6ff;
-}
-
-a.animeNavigation {
-    -webkit-appearance: button;
-    -moz-appearance: button;
-    appearance: button;
-    text-decoration: none;
-    color: black;
-    background-color: #4DC3FF;
-    border-radius: 12px;
-    padding: 12px;
-    border: 2px solid black;
-}
-
-a.animeNavigation:hover {
-    background-color: #80d4ff;
+    background: rgb(255, 43, 43);
 }
