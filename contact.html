@@ -2,40 +2,58 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Contact</title>
+    <title>About World of Warcraft!</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body id="document-body">
     <header>
-        <img src="rectangle.png" class="web_head" alt="head">
-        <h1 class="head">Contact</h1>
+
+        <div class="head-container">
+            <div class="head">
+                <h1>World of Warcraft!</h1>
+            </div>
+        </div>
+
+        <nav class="navigation">
+            <a href="index.html" class="button">About Me!</a>
+            <a href="about_mmo.html" class="button">About MMORPG!</a>
+            <a href="about_wow.html" class="button">World of Warcraft!</a>
+            <a href="about_swtor.html" class="button">Star Wars: The Old Republic!</a>
+            <a href="contact.html" class="button">Contact</a>
+        </nav>
+
     </header>
-    <nav class="navigation">
-        <a href="index.html" class="navigation">About me</a>
-        <a href="best_mmo.html" class="navigation">Best MMORPG ever!</a>
-        <a href="best_anime.html" class="navigation">Best Anime ever!</a>
-        <a href="contact.html" class="navigation">Contact</a>
-    </nav>
-    <div class="contact">
-        <form id="contact">
-            <br>
-            <label for="name">Name: </label>
-            <input type="text" placeholder="Enter your name" id="name" autocomplete="on" title="Enter full name!">
-            <label for="email">Email: </label>
-            <input type="text" placeholder="Enter your email" id="email" autocomplete="on" title="Enter email!">
-            <br>
-            <label for="message">Message: </label>
-            <br>
-            <textarea placeholder="Message" id="message" title="Don't leave empty!"></textarea>
-        </form>
+
+    <div class="content-container">
+        <div class="content contact">
+            <form id="contact" onsubmit="sendPost()">
+                <br>
+                <label for="name">Name: </label>
+                <input type="text" placeholder="Enter your name" id="name" autocomplete="on" title="Enter full name!">
+                <label for="email">Email: </label>
+                <input type="text" placeholder="Enter your email" id="email" autocomplete="on" title="Enter email!">
+                <br>
+                <label for="message">Message: </label>
+                <br>
+                <textarea placeholder="Message" id="message" title="Don't leave empty!"></textarea>
+            </form>
+            
+        </div>
+       
     </div>
-    <button id="submitButton" type="submit" form="contact" onmousemove="activateButton()" disabled>SEND</button>
+    <div class="content-container">
+        <button class="button contact" type="submit" form="contact" onmousemove="activateButton()" disabled="true">SEND</button>
+            
+        <script src="scripts/activateButton.js"></script>
+    </div>
+ 
     <footer id="footer">
         <div>
-            <p><strong>Programing course: </strong><a href="https://codecool.pl/" target="_blank">CODECOOL</a>
-                <strong>Contact me: </strong>szym.slow12@gmail.com</p>
+            <strong>Contact me: </strong>szym.slow12@gmail.com</p>
         </div>
     </footer>
-    <script src="scripts/activateButton.js"></script>
+    
+    </body>
+    </html>
 </body>
 </html>
