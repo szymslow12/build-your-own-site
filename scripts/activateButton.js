@@ -1,11 +1,17 @@
 function activateButton() {
+    let submitButton =  document.getElementsByClassName("button contact")[0];
     if (isNameCorrect() &&
         isEmailCorrect() &&
         !isTextBoxEmpty()) {
-        document.getElementById("submitButton").disabled = false;
+         
+        submitButton.disabled = false;
     } else {
-        document.getElementById("submitButton").disabled = true;
+        submitButton.disabled = true;
     }
+}
+
+function sendPost() {
+    alert("Message has been sent!");
 }
 
 function isNameCorrect() {
