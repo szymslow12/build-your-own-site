@@ -28,10 +28,8 @@ public class CalculateOverlap {
         int topX2 = r2.getTopRightX();
         int topY2 = r2.getTopRightY();
          
-        if (bottomX1 > topX2 ||
-            bottomY1 > topY2 ||
-            bottomX2 > topX1 ||
-            bottomY2 > topY1) {
+        if (bottomX1 > topX2 || bottomY1 > topY2 ||
+            bottomX2 > topX1 || bottomY2 > topY1) {
 
             return 0;
 
