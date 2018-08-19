@@ -126,14 +126,14 @@ a:hover {
     text-shadow: 2px 2px 2px #999966, 2px 3px 2px rgb(4, 88, 136);
 }
 
-.hover-item-list .dropdown {
+.dropdown {
     position: absolute;
     width: auto;
     height: auto;
     border: 1px solid gray;
     border-radius: 25px;
     background: rgb(255, 43, 43);
-    box-shadow: 5px 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 5px 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);    
 }
 
 .dropdown ul {
