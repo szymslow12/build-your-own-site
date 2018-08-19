@@ -110,3 +110,25 @@ a:hover {
 .button.contact:hover {
     background: rgb(255, 43, 43);
 }
+
+.hover-item-list:hover {
+    margin: 0;
+    padding: 0;
+    color: #c2c2a3;
+    border-radius: 25px;
+    text-shadow: 2px 2px 2px #999966, 2px 3px 2px rgb(4, 88, 136);
+}
+
+.hover-item-list .dropdown {
+    position: absolute;
+    width: 20%;
+    height: auto;
+    border: 1px solid gray;
+    border-radius: 25px;
+    background: rgb(255, 43, 43);
+    box-shadow: 5px 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.dropdown ul {
+    margin: 5px;
+}
