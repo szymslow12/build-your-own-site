@@ -7,24 +7,61 @@ class HoverList {
 }
 
 function showHoverList(span, items) {
+    
     let hoverListContainer = document.createElement("div");
     let hoverList = document.createElement("ul");
     hoverListContainer.setAttribute("class", "dropdown");
     span.appendChild(hoverListContainer);
     hoverListContainer.appendChild(hoverList);
-    hoverListContainer.style.top = (span.offsetTop + span.offsetHeight)+ "px";
-    hoverListContainer.style.left = (span.offsetLeft - span.offsetWidth / 2) + "px";
-    for (let item of items) {
-        let li = document.createElement("li");
-        li.textContent += item;
-        hoverList.appendChild(li);
+
+    for (let i = 0; i < items.length; i++) {
+        let item = items[i];
+        if (item instanceof Array) {
+            addItemsFromArray(item, hoverList, hoverListContainer, i);
+        } else {
+            addItem(hoverList, item);
+        }
     }
-    
+    hoverListContainer.style.top = (span.offsetTop + span.offsetHeight)+ "px";
+    hoverListContainer.style.left = (span.offsetLeft - (hoverListContainer.offsetWidth / 2 - span.offsetWidth / 2)) + "px";
+}
+
+function addItemsFromArray(items, hoverList, hoverListContainer, i) {
+    let classesHeaders = ["Aliance races:", "Horde races:"];
+    setContainers(hoverList, hoverListContainer, i);
+    hoverList.textContent = classesHeaders[i];
+    for (let j = 0; j < items.length; j++) {
+        addItem(hoverList, items[j]);
+    }
+}
+
+function setContainers(hoverList, hoverListContainer, i) {
+    if (i == 0) {
+        hoverListContainer.style.width = "auto";
+        hoverListContainer.style.display = "flex";
+        hoverListContainer.style.justifyContent = "center";
+    }
+    if (i > 0) {
+        hoverList = document.createElement("ul");
+        hoverListContainer.appendChild(hoverList);
+    }
+}
+
+function addItem(hoverList, item) {
+    let li = document.createElement("li");
+    li.textContent += item;
+    hoverList.appendChild(li);  
 }
 
 function addEventListeners() {
     let itemList = [['The Burning Crusade', 'Wrath of the Litch King', 'Cataclysm',
-    'Mist of the Pandaria', 'Draenor', 'Legion', 'Battle of Azeroth']];
+    'Mist of the Pandaria', 'Draenor', 'Legion', 'Battle of Azeroth'], 
+    ["Warrior", "Paladin", "Hunter", "Rouge", "Priest", "Death Knight",
+    "Shaman", "Mage", "Warlock", "Monk", "Druid", "Demon Hunter"],
+    [["Human", "Dwarf", "Night Elf", "Gnome", "Draenei", "Worgen", "Pandaren",
+    "Dark Iron Dwar", "Lightforged Draenei", "Void Elf"], ["Orc", "Undead", "Tauren", 
+    "Troll", "Blood Elf", "Goblin", "Pandaren", "Highmountain Tauren", "Mag'har Orc", "Nightborne"]]];
+
     let hoverItemLists = document.getElementsByClassName("hover-item-list");
     let onmouseleave = (e) => {
         for (let dropdown of document.getElementsByClassName("dropdown")) {
