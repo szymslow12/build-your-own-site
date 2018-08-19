@@ -1,12 +1,12 @@
 "use strict"
 
 class HoverList {
-    constructor(span, items, event) {
-        showHoverList(span, items, event);
+    constructor(span, items, isWow) {
+        showHoverList(span, items, isWow);
     }
 }
 
-function showHoverList(span, items) {
+function showHoverList(span, items, isWow) {
     
     let hoverListContainer = document.createElement("div");
     let hoverList = document.createElement("ul");
@@ -17,7 +17,7 @@ function showHoverList(span, items) {
     for (let i = 0; i < items.length; i++) {
         let item = items[i];
         if (item instanceof Array) {
-            addItemsFromArray(item, hoverList, hoverListContainer, i);
+            addItemsFromArray(item, hoverList, hoverListContainer, i, isWow);
         } else {
             addItem(hoverList, item);
         }
@@ -26,24 +26,37 @@ function showHoverList(span, items) {
     hoverListContainer.style.left = (span.offsetLeft - (hoverListContainer.offsetWidth / 2 - span.offsetWidth / 2)) + "px";
 }
 
-function addItemsFromArray(items, hoverList, hoverListContainer, i) {
-    let classesHeaders = ["Aliance races:", "Horde races:"];
-    setContainers(hoverList, hoverListContainer, i);
+function addItemsFromArray(items, hoverList, hoverListContainer, i, isWow) {
+    let classesHeaders = getClassesHeaders(isWow);
+    let secondItemList = setContainers(hoverListContainer, i);
+    if (secondItemList) {
+        hoverList = secondItemList;
+    }
     hoverList.textContent = classesHeaders[i];
     for (let j = 0; j < items.length; j++) {
         addItem(hoverList, items[j]);
     }
 }
 
-function setContainers(hoverList, hoverListContainer, i) {
+function getClassesHeaders(isWow) {
+    if (isWow) {
+        return ["Aliance races:", "Horde races:"];
+    } else {
+        return ["Republic", "Empire"];
+    }
+}
+
+function setContainers(hoverListContainer, i) {
     if (i == 0) {
         hoverListContainer.style.width = "auto";
         hoverListContainer.style.display = "flex";
         hoverListContainer.style.justifyContent = "center";
     }
     if (i > 0) {
-        hoverList = document.createElement("ul");
+        let hoverList = document.createElement("ul");
         hoverListContainer.appendChild(hoverList);
+        return hoverList;
+
     }
 }
 
@@ -53,15 +66,8 @@ function addItem(hoverList, item) {
     hoverList.appendChild(li);  
 }
 
-function addEventListeners() {
-    let itemList = [['The Burning Crusade', 'Wrath of the Litch King', 'Cataclysm',
-    'Mist of the Pandaria', 'Draenor', 'Legion', 'Battle of Azeroth'], 
-    ["Warrior", "Paladin", "Hunter", "Rouge", "Priest", "Death Knight",
-    "Shaman", "Mage", "Warlock", "Monk", "Druid", "Demon Hunter"],
-    [["Human", "Dwarf", "Night Elf", "Gnome", "Draenei", "Worgen", "Pandaren",
-    "Dark Iron Dwar", "Lightforged Draenei", "Void Elf"], ["Orc", "Undead", "Tauren", 
-    "Troll", "Blood Elf", "Goblin", "Pandaren", "Highmountain Tauren", "Mag'har Orc", "Nightborne"]]];
-
+function addEventListeners(itemsList, isWow) {
+    let itemList = itemsList;
     let hoverItemLists = document.getElementsByClassName("hover-item-list");
     let onmouseleave = (e) => {
         for (let dropdown of document.getElementsByClassName("dropdown")) {
@@ -73,11 +79,9 @@ function addEventListeners() {
         let span = hoverItemLists[i];
         span.addEventListener("mouseover", (event) => {
             onmouseleave(event);
-            let hoverList = new HoverList(span, itemList[i], event)
+            let hoverList = new HoverList(span, itemList[i], isWow)
         });
 
         span.addEventListener("mouseleave", onmouseleave);
     }
 }
-
-addEventListeners();
