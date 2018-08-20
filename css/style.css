@@ -139,3 +139,7 @@ a:hover {
 .dropdown ul {
     margin: 5px;
 }
+
+span {
+    font-weight: 900;
+}
