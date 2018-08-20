@@ -63,6 +63,7 @@ function validate(id, regex, htmlValue) {
         if (label.childNodes.length < 2) {
             label.appendChild(badInputBox);
             badInputBox.style.background = "white";
+		badInputBox.style.color = "red";
             badInputBox.style.top = (element.offsetTop - element.offsetHeight ) + "px";
             badInputBox.style.left = element.offsetLeft + "px";
         } 
